@@ -1,0 +1,164 @@
+body 
+{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+  
+.whole_wrapper 
+{
+    padding-bottom: 5px;
+    padding-top : 5px;
+    background: #FFDCFF;
+    border-radius: 10px;
+    width: 80%;
+    margin-top : 30px;
+    margin-bottom : 30px;
+}
+
+/* 버튼 눌리는 효과 */
+button:active 
+{
+    box-shadow: inset -.3rem -.1rem 1.4rem  #FBFBFB, inset .3rem .4rem .8rem #FFD2FF; 
+    cursor: pointer;
+}
+
+header 
+{
+    margin-left : 20px;
+    margin-bottom : 20px;
+    text-align : center;
+}
+
+main 
+{
+    margin-left : 15px;
+    margin-top : 20px;
+}
+
+section form 
+{
+    margin-right : auto;
+    margin-top : 10px;
+}
+
+.btn
+{
+    width: 150px;
+    height: 40px;
+    color: white;
+    padding : none;
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    border-radius : 5px;
+    border : none;
+}
+
+input 
+{
+    text-align : center;
+}
+
+/* 표준 */
+input::placeholder {
+    color: white;
+    text-align: center;
+}
+
+/* Webkit 기반 브라우저 (Chrome, Safari) */
+input::-webkit-input-placeholder {
+    color: white;
+    text-align: center;
+}
+
+/* Mozilla Firefox */
+input::-moz-placeholder {
+    color: white;
+    text-align: center;
+}
+
+/* Microsoft Edge 및 Internet Explorer 10+ */
+input:-ms-input-placeholder {
+    color: white;
+    text-align: center;
+}
+
+/* Internet Explorer 10 */
+input::-ms-input-placeholder {
+    color: white;
+    text-align: center;
+}
+
+#road_num 
+{
+    background: rgb(247,150,192);
+    background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+    line-height: 42px;
+    padding: 0;
+    width : 220px;
+}
+
+#road_div 
+{
+    margin-bottom : 10px;
+}
+
+#car_div
+{
+    margin-top : 10px;
+}
+
+#gen_road_btn
+{
+    background: rgb(247,150,192);
+    background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+    line-height: 42px;
+    padding: 0;
+}
+
+#car_num 
+{
+    background: rgb(247,150,192);
+    background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+    line-height: 42px;
+    padding: 0;
+    width : 200px;
+}
+
+#cal_btn
+{
+    background: rgb(247,150,192);
+    background: radial-gradient(circle, rgba(247,150,192,1) 0%, rgba(118,174,241,1) 100%);
+    line-height: 42px;
+    padding: 0;
+    color : white;
+}
+
+#article {
+    margin-top : 20px;
+    display : flex;
+    flex-direction : column;
+    align-items : center;    
+}
+
+#road_input_div 
+{
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
+#canvas 
+{
+    width : 80%;
+    height : 760px;
+    background-color : white;
+    border-radius : 5px;
+    margin-right : 15px;
+    margin-bottom : 10px;
+    margin-top : 10px;
+}

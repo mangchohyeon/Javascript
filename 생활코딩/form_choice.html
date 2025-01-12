@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head lang="ko">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <title>form_choice</title>
+  </head>
+
+  <body>
+    <h1>색상</h1>
+
+    <form action="http://localhost/color.php">
+      <select name="color">
+        <option value="red">빨간색</option>
+        <option value="orange">주황색</option>
+        <option value="yellow">노랑색</option>
+      </select>
+      <input type="submit" />
+    </form>
+
+    <h1>색상 다중선택</h1>
+
+    <form action="http://localhost/color.php">
+      <select name="color2" multiple>
+        <option value="red">빨간색</option>
+        <option value="orange">주황색</option>
+        <option value="yellow">노랑색</option>
+      </select>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

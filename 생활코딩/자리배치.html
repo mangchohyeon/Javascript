@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학생 자리 배치</title>
+
+  <!-- xlsx.js 라이브러리 추가 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+
+  <style>
+    #tableContainer {
+      margin-top: 20px;
+    }
+
+    table,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+
+    td {
+      width: 100px;
+      height: 50px;
+      text-align: center;
+      background-color: aquamarine;
+      cursor: pointer;
+    }
+
+    input[type="number"] {
+      width: 50px;
+      margin-right: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>학생 자리 배치</h1>
+  <p>
+  <h2>학생들의 이름이 적힌 Excel파일을 업로드한 후, 반 배치에 맞게 가로,세로를 입력하시면 됩니다.<br>
+    Excel파일에는 1열(1번쨰 세로줄)에만 학생들의 이름을 입력하여 주시면 됩니다.<br>
+    파란색칸에는 학생들을 배치하고, 빨간색 칸에는 학생들을 배치하지 않습니다.<br>
+    배치를 잘못 입력하였을 때는 가로, 세로를 다시 입력하시고 표 생성을 누르시면 표가 다시 생성됩니다.<br>
+    파란색 칸을 클릭하면 빨간색 칸으로 변하고, 빨간색 칸을 클릭하면 파란색 칸으로 변합니다.</h2>
+  </p>
+  <br>
+  <br>
+
+  <!-- Excel 파일 업로드 입력 -->
+  <label for="fileInput">Excel 파일 업로드:</label>
+  <input type="file" id="fileInput" accept=".xlsx">
+  <br>
+  <br>
+  <br>
+
+  <!-- 가로, 세로 길이 입력 -->
+  <label for="columns">가로 길이:</label>
+  <input type="number" id="columns" min="1" placeholder="숫자 입력" width="10">
+
+  <label for="rows">세로 길이:</label>
+  <input type="number" id="rows" min="1" placeholder="숫자 입력" width="10">
+
+  <button onclick="createTable()">표 생성</button>
+
+  <button onclick="assignSeats()">자리 배치</button>
+
+  <div id="tableContainer"></div>
+
+  <script>
+    let studentNames = [];
+
+    // Excel 파일을 읽고 첫 번째 열의 이름 목록을 가져옴
+    document.getElementById('fileInput').addEventListener('change', function (event) {
+      const file = event.target.files[0];
+      if (file && file.name.endsWith('.xlsx')) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, {type: 'array'});
+          const firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+          const sheetData = XLSX.utils.sheet_to_json(firstSheet, {header: 1});
+
+          // 첫 번째 열에서 학생 이름을 읽어옴
+          studentNames = sheetData.map(row => row[0]).filter(name => name);
+          alert("Excel 파일이 성공적으로 로드되었습니다.");
+        };
+        reader.readAsArrayBuffer(file);
+      } else {
+        alert("Excel 파일(.xlsx)을 선택해주세요.");
+      }
+    });
+
+    // 테이블 생성
+    function createTable() {
+      const rows = parseInt(document.getElementById("rows").value);
+      const columns = parseInt(document.getElementById("columns").value);
+
+      if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
+        alert("가로와 세로 길이에 올바른 숫자를 입력하세요.");
+        return;
+      }
+
+      const tableContainer = document.getElementById("tableContainer");
+      tableContainer.innerHTML = '';  // 기존 테이블 초기화
+
+      const table = document.createElement("table");
+
+      for (let i = 0; i < rows; i++) {
+        const row = document.createElement("tr");
+        for (let j = 0; j < columns; j++) {
+          const cell = document.createElement("td");
+          cell.innerText = ""; // 초기에는 빈 칸
+          cell.style.backgroundColor = "aquamarine";
+          cell.onclick = function () { // 클릭 시 색상 변경
+            cell.style.backgroundColor = cell.style.backgroundColor === "aquamarine" ? "red" : "aquamarine";
+          };
+          row.appendChild(cell);
+        }
+        table.appendChild(row);
+      }
+
+      tableContainer.appendChild(table);
+    }
+
+    // 자리 배치 함수
+    function assignSeats() {
+      const table = document.querySelector("#tableContainer table");
+      if (!table) {
+        alert("먼저 표를 생성하세요.");
+        return;
+      }
+
+      if (studentNames.length === 0) {
+        alert("Excel 파일을 업로드하여 학생 목록을 불러오세요.");
+        return;
+      }
+
+      // aquamarine 색상인 셀만 필터링하여 무작위 배치
+      const availableCells = [];
+      for (let i = 0; i < table.rows.length; i++) {
+        for (let j = 0; j < table.rows[i].cells.length; j++) {
+          const cell = table.rows[i].cells[j];
+          if (cell.style.backgroundColor === "aquamarine") {
+            availableCells.push(cell);
+          }
+        }
+      }
+
+      // 학생 수와 남은 셀 수를 비교하여 자리 배치
+      const namesToAssign = [...studentNames];
+      shuffleArray(namesToAssign);
+      for (let i = 0; i < availableCells.length && i < namesToAssign.length; i++) {
+        availableCells[i].innerText = namesToAssign[i];
+      }
+    }
+
+    // 배열을 무작위로 섞는 함수 (Fisher-Yates Shuffle)
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap
+      }
+    }
+  </script>
+
+</body>
+
+</html>

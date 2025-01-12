@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaTeX 스타일 변환기</title>
+    <link rel="stylesheet" href="ch-formula.css">
+</head>
+<body>
+    <h1>LaTeX 스타일 변환기</h1>
+    <textarea id="input" rows="4" cols="50" placeholder="LaTeX 스타일로 수식을 입력하세요 (예: H_2O)"></textarea><br>
+    <button onclick="convertFormula()">변환하기</button>
+    <button onclick="copyOutput()">결과 복사</button>
+    <div id="output" style="border: 1px solid #ccc; padding: 10px; margin-top: 10px; min-height: 50px;"></div>
+
+    <script src="ch-formula.js"></script>
+</body>
+</html>

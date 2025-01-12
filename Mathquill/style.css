@@ -1,0 +1,13 @@
+.span_editable
+{
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 10px; /* 최소 가로 크기 */
+    max-width: 100%; /* 최대 가로 크기 */
+    word-wrap: break-word; /* 긴 단어 줄바꿈 */
+    white-space: pre-wrap; /* 줄바꿈 유지 */
+    overflow-wrap: break-word; /* 단어가 넘칠 경우 줄바꿈 */
+}
+

@@ -1,0 +1,17 @@
+.Home {
+  display : flex;
+  justify-content : center;
+}
+
+#whole_wrapper nav ul li {
+  display : inline;
+}
+
+#whole_wrapper nav ul {
+  margin : 10px auto;
+}
+
+a {
+  text-decoration-line : none;
+  color : black;
+}

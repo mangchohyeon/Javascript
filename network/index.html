@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네트워크 이론 시각화</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div class="whole_wrapper">
+      <header>
+        <h1>최적 경로 계산기</h1>
+      </header>
+  
+      <main>
+        <section>
+          <div id = "road_div">
+            <label for="road_num">도로 개수 (1~10) &ensp;:&ensp;</label>
+            <input type = "number" placeholder = "도로의 개수를 입력하여 주십시오" 
+            onfocus="this.placeholder=''" onblur="this.placeholder='도로의 개수를 입력하여 주십시오.'" 
+            id = "road_num" class = "btn" min="1" max="10">
+            <button id = "gen_road_btn" class = "btn">도로 생성하기</button>
+          </div>
+  
+          <div id = "car_div">
+            <label for="car_num">A에서 B로 가는 차의 수 (n) &ensp;: </label>
+            <input type="number" placeholder = "차의 수를 입력하여 주십시오" 
+            onfocus="this.placeholder=''" 
+            onblur="this.placeholder='차의 수를 입력하여 주십시오.'" 
+            id = "car_num" class = "btn" min="1">
+          </div>
+          
+            
+        </section>
+  
+        <article id = "article">
+          <button type = "button" id  = "cal_btn" class = "btn">계산하기 </button>
+  
+          <div id = "road_input_div">
+          </div>
+          <canvas id = "canvas"> </canvas>
+        </article>
+        
+      </main>
+  
+    </div> <!-- whole_wrapper 끝나는 곳-->
+  
+  </body>
+  <script src = "script.js"></script>
+  
+</html>
