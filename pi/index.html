@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>결과값이 π인 극한의 증명</title>
+</head>
+<body>
+    <header>
+        <h1>결과값이 \( \pi \)인 극한의 증명</h1>
+    </header>
+
+    <section>
+        <div class="div_div_formula">
+            <div class="div_formula"> <!-- p 태그 대신 div 태그 사용 -->
+                \[
+                \begin{align*}
+                &\tan(45^o) = \frac {\pi} {4} \\ \\
+                &\tan(\frac {\pi} {4}) = \tan(45^o) = 1 \\ \\
+                &\tan^{-1}(1) = \frac {\pi} {4} \\ \\ 
+                &\pi = 4 \cdot \tan^{-1}(1) \\ \\
+                \end{align*}
+                \]
+            </div>
+        </div>
+    
+        <div id="container">
+            <div id="div_div_formula2">
+                <div id="div_formula2"> <!-- p 태그 대신 div 태그 사용 -->
+                    \[
+                    \begin{align*}
+                    &y = \tan^{-1}(x) \\ 
+                    &tan(y) = x \\ 
+                    &(sec^{2}(y))y^{\prime} = 1 \\ 
+                    & \tan^{2}(x) + 1 = \sec^{2}(x) \\
+                    & y^{\prime} = \frac {1} {\sec^{2}(y)} = \frac {1} {1+\tan^{2}(y)} \\
+                    &(\tan^{-1}(x))^{\prime} = \frac {1} {1+x^{2}} \\
+                    & \tan^{-1}(x) = \int_{}^{} \frac {1} {1+x^{2}} \\ \\
+                    \end{align*}
+                    \]
+                </div>
+            </div>
+
+            <div id="div_div_formula3">
+                <div id = "div_formula3">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <script>
+      window.onload = () => {
+        MathJax.typeset(); // 수식 재렌더링
+      };
+    </script>
+</body>
+</html>
