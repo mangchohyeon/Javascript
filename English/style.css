@@ -1,0 +1,126 @@
+/*header 시작*/
+header
+{
+    height : 10vh;
+    width : 100vw;
+    padding : 1vh;
+    display : flex;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+    align-items: center;
+}
+
+#ul_login
+{
+    width : 95%;
+    height : 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.li_login
+{
+    list-style : none;
+    width : 10%;
+    height : 85%;
+    text-align: center;
+    margin-left: 20px;
+    display : flex;
+    align-items: center;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+    justify-content: center;
+}
+
+.li_login a
+{
+    width : 50%;
+    height : 100%;
+    color : black;
+    text-decoration : none;
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+#li_home
+{
+    margin-right: auto;
+    margin-left: 0 !important;
+}
+
+#li_guide
+{
+    margin-right : 5%;
+    margin-left : 5%;
+}
+
+.li_login a:hover, #ul_login li a:focus
+{
+    text-decoration: underline;
+    color:black;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+}
+
+/*header 끝*/
+
+
+
+/*nav 시작*/
+nav
+{
+    margin-top: 5vh;
+    width : 100vw;
+    height : 20vh;
+    padding : 1vh;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+}
+
+#ul_nav 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height : 90%;
+    width : 95%;
+}
+
+nav ul li
+{
+    list-style : none;
+    width : 15%;
+    height : 30%;
+    align-items: center;
+    text-align: center;
+    margin-left: 10%;
+    margin-right : 10%;
+}
+
+nav ul li a
+{
+    width : 100%;
+    height : 100%;
+    color : black;
+    text-decoration : none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+    font-size: 16px;
+}
+
+#a_study:hover, #a_study:focus, #a_upload:hover, #a_upload:focus
+{
+    text-decoration: underline;
+    box-shadow : 2px 0 5px #d6d6d6;
+    mix-blend-mode: multiply;
+}
+
+

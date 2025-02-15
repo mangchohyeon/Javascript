@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+    <head lang = "ko">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+        <link rel="stylesheet" href="login.css">
+    </head>
+
+    <body>
+        <header>
+            <ul id = "ul_login">
+                <li id = "li_login"> <a id = "a_home" href = "index.html">Home</a></li>
+                <li> <a href = "login.html">로그인</a> </li>
+                <li id = "li_guide"> <a href = "guide.html">도움말</a> </li>
+            </ul>
+        </header>
+
+        <main>
+            <div id = "div_title"> <h2>로그인</h2> </div>
+            
+            <div id = "div_login">
+                <form id = "form_login">
+                    <div id = "div_email" class = "login_input_wrapper" title = "Email을 입력하세요">
+                        <input type = "email" name = "E-mail" placeholder = "E-mail" 
+                        id = "input_email" class= "login_input">
+                    </div>
+
+                    <div id = "div_pwd" class = "login_input_wrapper" title = "비밀번호를 입력하세요">
+                        <div id = "div_eye_icon">
+                            <img src = "../../Image/password_eye_icon.png" 
+                            alt = "Password eye icon" id = "img_pwd_eye">
+                        </div>
+                        <input type = "text" name = "pwd" placeholder = "password" id = "input_pwd" 
+                        class= "login_input">
+                    </div>
+
+                    <div id = "div_a">
+                        <a href = "English/Register/register.html" id ="a_register" 
+                        class = "a_login" title = "회원가입 페이지로 이동합니다.">회원가입</a>
+
+                        <a href = "/English/Find_info/find_info.html" id = "a_find_info" 
+                        class = "a_login" title = "아이디 및 비밀번호 찾기 페이지로 이동합니다.">
+                        아이디 및 비밀번호 찾기</a>
+                    </div>
+                    
+                </form>
+            </div>
+        </main>
+        
+        <script defer src = "login.js"></script>
+    </body>
+
+</html>
